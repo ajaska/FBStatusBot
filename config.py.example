@@ -1,0 +1,6 @@
+# ======= Facebook API Configuration =======
+# Create and manage your Facebook apps and keys
+# using https://developers.facebook.com/apps
+APPID = '000000000000000'
+APPSECRET = '00000000000000000000000000000000'
+
