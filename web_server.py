@@ -57,24 +57,6 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/token')
-def token_zzz():
-    return jsonify(session)
-
-@app.route('/random-crap')
-def show_list():
-    data = g.db.execute('SELECT tanker,shares FROM tankers ORDER BY shares DESC, tanker ASC').fetchall()
-    entries = []
-    for row in data:
-        entries.append( dict(tanker=row[0], shares=row[1]))
-    data = g.db.execute('SELECT tanker FROM tankers ORDER BY tanker ASC').fetchall()
-    entries2 = []
-    for row in data:
-        entries2.append( dict(tanker=row[0]))
-    
-    shares = sum([x['shares'] for x in entries])
-    return render_template('show_entries.html', entries=entries, entries2=entries2,shares=shares)
-
 @app.route('/logout')
 def logout():
     session.pop('access_token', None)
