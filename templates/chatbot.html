@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block content %}
+	<b>Chat:</b>
+	<div id="log">
+	</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script src="{{ url_for('static',filename='ajax_results.js') }}"></script>
+<script type=text/javascript>
+	$(document).ready( function() {
+		$(".content").css("width","640");
+		var uid = "{{ uid }}";
+		getProgress(uid);
+	});
+</script>
+
+{% endblock %}
+

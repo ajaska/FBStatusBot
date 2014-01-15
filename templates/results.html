@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block content %}
+	<b>Chat:</b>
+	<span class="clan_id">{% if clan_id %}{{clan_id[0]}} [{{clan_id[1]}}]{% endif %}</span>
+	<div id="recs">
+		<div id="clan-info">{% if clan %}
+		<p>
+		Clan: WN6 {{clan.wn6}}, Eff {{clan.eff}}
+		<br />
+		TierX: WN6 {{clan.tierx_wn6}}, Eff {{clan.tierx_eff}}
+		<br />
+		({{clan.tierx}} tier Xs owned by {{clan.ready}} members.)</p>
+		{% endif %}</div>
+		<span class="small" id="sort-help" style="display:none;">Click on a header to sort by it. Hold shift to sort multiple.</span>
+		<div id="status">
+		</div>
+		<table border="0" id="tankTable" class='tablesorter'  style="width:100%;display:none;">
+			<thead>
+			<tr>
+				<th scope="col" style="width:10px" class="nosort">#</th>
+				<th scope="col">Tanker</th>
+				<th scope="col" style="width:120px">Position</th>
+				<th scope="col" style="width:60px">WR</th>
+				<th scope="col" style="width:60px">WN6</th>
+				<th scope="col" style="width:60px">Eff</th>
+				<th scope="col" style="width:60px">Battles</th>
+				<th scope="col" style="width:20px">Xs</th>
+			</tr>
+			</thead>
+			<tbody>
+		{% if results %}
+			{% for data in results[2] %}
+			<tr>
+				<td>{{loop.index}}</td>
+				<td>{{data.name}}</a></td>
+				<td>{{data.position}}</td>
+				<td>{{data.winrate}}</td>
+				<td>{{data.wn6}}</td>
+				<td>{{data.eff}}</td>
+				<td>{{data.battles}}</td>
+				<td>{{data.tierx}}</td>
+			</tr>
+			{% endfor %}
+		{% endif %}
+			</tbody>
+		</table>
+	</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script src="{{ url_for('static',filename='ajax_results.js') }}"></script>
+<script type=text/javascript>
+{% if results %}
+	$(document).ready( function() {
+		$(".content").css("width","640");
+		$("#sort-help").show();
+		$("#tankTable").show();
+		$("#status").remove();
+		$("script").remove();
+		sortTable();
+	});
+{% endif %}
+{% if not results %}
+	$(document).ready( function() {
+		$("#tankTable").hide(0);
+		getProgress();
+	});
+{% endif %}
+</script>
+
+{% endblock %}
+

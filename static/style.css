@@ -1,0 +1,169 @@
+body {
+	margin:0;
+    font-family: Verdana,Arial,"Helvetica Neue",arial, helvetica, sans-serif;
+}
+nav ul {
+	height: 34px;
+	padding: 0;
+}
+nav ul li {
+	display: block;
+}
+nav ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 13px;
+	font-weight: bold;
+	height: 24px;
+	width: 70px;
+	display: block;
+	padding: 10px 5px 0 5px;
+	text-align: center;
+	position: relative;
+	float: right;
+}
+nav ul li a:hover {
+	background: #e1e7f5;
+	color: black;
+}
+nav ul li:first-child a {
+	float: left;
+}
+nav {
+	position: static;
+	margin:0;
+	padding:0;
+	list-style:none;
+	z-index: 10;
+	width: 980px;
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #2e51a2;
+}
+
+.content {
+	margin-top: 40px;
+	margin-left: auto;
+	margin-right:auto;
+	padding: 10px;
+	width: 320px;
+	border: 1px solid #000;
+}
+
+
+.button {
+	background-color:#2e51a2;
+	border:1px solid #2e51a2;
+	display:inline-block;
+	color:#ffffff;
+	font-size:13px;
+	font-weight:bold;
+	padding:3px 8px;
+	text-decoration:none;
+}.button:hover {
+	background-color:#e1e7f5;
+	color:#2e51a2;
+	cursor:pointer;
+}.button:active {
+	position:relative;
+	top:1px;
+}
+
+.small {
+	font-size:11px;
+	color:#777777;
+}
+
+.error {
+	font-size: 11px;
+	color:#ca043f;
+}
+
+footer {
+	margin-top: 40px;
+	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+input {
+	font-size:12px;
+}
+
+form {
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+p {
+	font-size: 11px;
+
+}
+
+#tankTable {
+	margin:10px 0px 0px 0px;
+	padding:0px;
+	width:100%;
+	border-collapse: collapse;
+	border:1px solid #000000;
+
+}
+#tankTable table{
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}
+
+#tankTable tr:nth-child(odd) {
+	background-color:#e1e7f5;
+}
+
+#tankTable tr:nth-child(even) {
+	background-color:#ffffff;
+}
+#tankTable td{
+	vertical-align:middle;
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding: 2px;
+	font-size:13px;
+	font-family:Verdana;
+	color:#000000;
+}
+
+#tankTable th {
+	background-color:#2e51a2;
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	padding:6px 4px 4px 4px;
+	font-size:14px;
+	font-family:Verdana;
+	font-weight:bold;
+	color:#ffffff;
+}
+
+.link span{ 
+position: absolute;
+background-color: #e1e7f5;
+padding: 5px;
+border: 1px dashed #2e51a2;
+visibility: hidden;
+color: black;
+text-decoration: none;
+}
+
+.link span img{
+border-width: 0;
+padding: 2px;
+}
+
+.link:hover span{
+visibility: visible;
+top: 114px;
+right: 40px; /*position where enlarged image should offset horizontally */
+z-index: 50;
+}
+

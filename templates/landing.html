@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+	<a href="{{ url_for('oauth_redirect') }}">
+	<span class='button'>Connect with Facebook</span>
+	</a>
+	<p>To generate messages that you would say,
+	please connect with Facebook. Don't worry--
+	we don't store any information.</p>
+	<link rel="prefetch" href="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js">
+{% endblock %}
+
