@@ -1,9 +1,6 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
-import api, markov_model
-from chatterbotapi import ChatterBotFactory, ChatterBotType
+import api
 from user import User
-
-factory = ChatterBotFactory()
 
 DATABASE = '/tmp/dev.db'
 DEBUG = True
