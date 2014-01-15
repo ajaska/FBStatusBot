@@ -1,3 +1,7 @@
+
+# The website that users will use to access the bot
+WEBSITE = 'your-site.com'
+
 # ======= Facebook API Configuration =======
 # Create and manage your Facebook apps and keys
 # using https://developers.facebook.com/apps
