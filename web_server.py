@@ -18,9 +18,11 @@ users = {}
 @app.route('/')
 def front_page():
     if session.get('id'):
+        if session['id'] not in users:
+            session.pop('id',None)
+            return render_template('landing.html')
         return render_template('chatbot.html', uid=session['id'])
-    else:
-        return render_template('landing.html')
+    return render_template('landing.html')
 
 @app.route('/facebook-login')
 def oauth_redirect():
@@ -63,7 +65,7 @@ def token_zzz():
 
 @app.route('/logout')
 def logout():
-    session.pop('access_token', None)
+    session.pop('id', None)
     flash('You were logged out')
     return redirect(url_for('front_page'))
 
