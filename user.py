@@ -6,7 +6,7 @@ bot, me = True, False
 factory = ChatterBotFactory()
 
 class User(object):
-    def __init__(self, access_token, uid):
+    def __init__(self, access_token, uniqueid):
         self.generator = self.messageGenerator(access_token)
         self.name = api.getFirstName(access_token)
         self.uid = uniqueid
@@ -15,18 +15,18 @@ class User(object):
         self.last_turn = bot
 
     def generateMessage(self):
-        name = "CleverBot" if bot else self.name
         message = self.generator()
+        name = "CleverBot" if self.last_turn == bot else self.name
         return "{name}: {message}".format(name=name, message=message)
     
     def messageGenerator(self, access_token):
-        me = User.generateStatusMessageGenerator(access_token)
-        bot = User.generateBotMessageGenerator()
+        me_func = User.generateStatusMessageGenerator(access_token)
+        bot_func = User.generateBotMessageGenerator()
         def generatorWrapper():
             if self.last_turn == bot:
-                message = me(self.last_message)
+                message = me_func(self.last_message)
             else:
-                message = bot(self.last_message)
+                message = bot_func(self.last_message)
             self.last_message = message
             self.last_turn = not self.last_turn
             return message
