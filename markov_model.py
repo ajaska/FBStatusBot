@@ -20,14 +20,6 @@ def generateMarkovMap(statuses, lookback=2):
             following[key] /= total                             
     return markov_map
 
-def sample(items):
-    next_word = None
-    t = 0.0
-    for k, v in items:
-        t += v
-        if t and random() < v/t:
-            next_word = k
-    return next_word
  
 def letters_only(text):
     for c in string.whitespace+string.punctuation:
@@ -72,7 +64,7 @@ def generateStatus(markov_map, statuses, lookback=2):
     while not sentence:
         sentence = []
         next_word = sample(markov_map[''].items())
-        while next_word != '':
+        while next_word != '' or '.':
             sentence.append(next_word)
             next_word = sample(markov_map[' '.join(sentence[-lookback:])].items())
         sentence = ' '.join(sentence)
@@ -83,6 +75,15 @@ def generateStatus(markov_map, statuses, lookback=2):
                 sentence = []
                 break
     return sentence
+
+def sample(items):
+    next_word = None
+    t = 0.0
+    for k, v in items:
+        t += v
+        if t and random() < v/t:
+            next_word = k
+    return next_word
 
 def makeSimilarStatus(status, generator):
     choices = [generator() for i in range(250)]
