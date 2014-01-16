@@ -59,10 +59,6 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route('/token')
-def token_zzz():
-    return jsonify(session)
-
 @app.route('/logout')
 def logout():
     session.pop('id', None)
