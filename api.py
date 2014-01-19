@@ -1,12 +1,12 @@
 import config
 import flask
 import json
-import random
 import string
 import urllib.request, urllib.error
+import uuid
 
-def generateID(length=12, chars=string.ascii_uppercase+string.digits):
-    return ''.join(random.choice(chars) for x in range(length))
+def generateID()
+    return uuid.uuid4().hex
 
 def login():
     return flask.redirect('https://www.facebook.com/dialog/oauth' \
