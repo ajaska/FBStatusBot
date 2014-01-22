@@ -64,7 +64,7 @@ def generateStatus(markov_map, statuses, lookback=2):
     while not sentence:
         sentence = []
         next_word = sample(markov_map[''].items())
-        while next_word != '' or '.':
+        while next_word != '':
             sentence.append(next_word)
             next_word = sample(markov_map[' '.join(sentence[-lookback:])].items())
         sentence = ' '.join(sentence)
