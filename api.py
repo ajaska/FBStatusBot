@@ -5,7 +5,7 @@ import string
 import urllib.request, urllib.error
 import uuid
 
-def generateID()
+def generateID():
     return uuid.uuid4().hex
 
 def login():
